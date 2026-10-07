@@ -1,0 +1,15 @@
+services:
+  fts:
+    build: .
+    image: unicode-fts:latest
+    container_name: unicode-fts
+    ports:
+      - "8000:8000"
+    environment:
+      FTS_DB_PATH: /data/fts.db
+    volumes:
+      - fts-data:/data
+    restart: unless-stopped
+
+volumes:
+  fts-data:
